@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>EnQMail — Email Organisation &amp; Review App</title>
+  <meta name="description" content="EnQMail is an email organisation and review workspace for Gmail. Read our Privacy Policy, Terms of Service, and account management information." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --primary:       #6D5DF6;
+      --primary-dark:  #4F46E5;
+      --primary-light: #F3F1FF;
+      --bg:            #F8FAFC;
+      --card:          #FFFFFF;
+      --text:          #111827;
+      --text-muted:    #6B7280;
+      --border:        #E5E7EB;
+      --radius:        18px;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      line-height: 1.7;
+    }
+
+    /* ── Privacy-Policy banner (top of page, highly visible) ── */
+    .privacy-banner {
+      background: var(--primary);
+      color: #fff;
+      text-align: center;
+      padding: 14px 24px;
+      font-size: 15px;
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .privacy-banner a {
+      color: #fff;
+      text-decoration: underline;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+
+    .privacy-banner a:hover { opacity: 0.85; }
+
+    /* ── Hero ── */
+    .hero {
+      padding: 80px 24px 60px;
+      text-align: center;
+      background:
+        radial-gradient(circle at top left,  rgba(109,93,246,0.12), transparent 40%),
+        radial-gradient(circle at top right, rgba(79,70,229,0.10),  transparent 40%),
+        white;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .logo {
+      width: 90px;
+      height: 90px;
+      margin: 0 auto 24px;
+      border-radius: 24px;
+      overflow: hidden;
+      box-shadow: 0 15px 40px rgba(109,93,246,0.22);
+      background: white;
+    }
+
+    .logo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    h1 {
+      font-size: clamp(34px, 5vw, 58px);
+      font-weight: 800;
+      letter-spacing: -2px;
+      margin-bottom: 16px;
+    }
+
+    .subtitle {
+      max-width: 680px;
+      margin: 0 auto;
+      color: var(--text-muted);
+      font-size: 18px;
+    }
+
+    .badge {
+      display: inline-flex;
+      margin-top: 28px;
+      padding: 8px 18px;
+      border-radius: 999px;
+      background: var(--primary-light);
+      color: var(--primary);
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    /* ── Privacy highlight box (below hero) ── */
+    .privacy-highlight {
+      background: white;
+      border: 2px solid var(--primary);
+      border-radius: var(--radius);
+      padding: 28px 32px;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      flex-wrap: wrap;
+      margin-bottom: 36px;
+    }
+
+    .privacy-highlight .ph-icon {
+      font-size: 44px;
+      flex-shrink: 0;
+    }
+
+    .privacy-highlight .ph-text h2 {
+      font-size: 20px;
+      font-weight: 800;
+      color: var(--primary);
+      margin-bottom: 6px;
+    }
+
+    .privacy-highlight .ph-text p {
+      color: var(--text-muted);
+      font-size: 15px;
+      margin-bottom: 14px;
+    }
+
+    .btn-privacy {
+      display: inline-block;
+      padding: 11px 26px;
+      background: var(--primary);
+      color: white;
+      text-decoration: none;
+      border-radius: 12px;
+      font-weight: 700;
+      font-size: 15px;
+      transition: background .2s;
+    }
+
+    .btn-privacy:hover { background: var(--primary-dark); }
+
+    /* ── Container & cards ── */
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 60px 24px;
+    }
+
+    .section-title {
+      text-align: center;
+      font-size: 32px;
+      font-weight: 800;
+      margin-bottom: 12px;
+    }
+
+    .section-subtitle {
+      text-align: center;
+      color: var(--text-muted);
+      margin-bottom: 40px;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px;
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 28px;
+      text-decoration: none;
+      color: inherit;
+      transition: all .2s ease;
+      box-shadow: 0 3px 12px rgba(0,0,0,.04);
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 14px 40px rgba(0,0,0,.09);
+      border-color: rgba(109,93,246,.30);
+    }
+
+    .card.featured {
+      border-color: var(--primary);
+      box-shadow: 0 4px 20px rgba(109,93,246,.12);
+    }
+
+    .icon {
+      width: 60px;
+      height: 60px;
+      border-radius: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--primary-light);
+      font-size: 26px;
+      margin-bottom: 18px;
+    }
+
+    .card h3 {
+      font-size: 22px;
+      margin-bottom: 10px;
+      font-weight: 800;
+    }
+
+    .card p {
+      color: var(--text-muted);
+      font-size: 15px;
+    }
+
+    .card-link-label {
+      display: inline-block;
+      margin-top: 14px;
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--primary);
+    }
+
+    /* ── Info box ── */
+    .info-box {
+      margin-top: 50px;
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 30px;
+      text-align: center;
+    }
+
+    .info-box h3 { font-size: 24px; margin-bottom: 12px; }
+
+    .info-box p {
+      color: var(--text-muted);
+      margin-bottom: 18px;
+    }
+
+    .email-btn {
+      display: inline-block;
+      padding: 12px 24px;
+      background: var(--primary);
+      color: white;
+      text-decoration: none;
+      border-radius: 12px;
+      font-weight: 700;
+      transition: background .2s;
+    }
+
+    .email-btn:hover { background: var(--primary-dark); }
+
+    /* ── Footer ── */
+    footer {
+      margin-top: 60px;
+      text-align: center;
+      padding: 30px 20px;
+      color: var(--text-muted);
+      font-size: 14px;
+      border-top: 1px solid var(--border);
+      background: white;
+    }
+
+    footer a {
+      color: var(--primary);
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    footer a:hover { text-decoration: underline; }
+
+    .footer-links {
+      margin-top: 10px;
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ═══════════════════════════════════════════════
+       TOP BANNER — Privacy Policy link (clearly visible)
+       ═════════════════════════════════════════════== -->
+  <div class="privacy-banner" id="privacy-banner">
+    🔒 Your privacy matters.
+    <a href="privacy.html">Read our Privacy Policy →</a>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════
+       HERO
+       ═════════════════════════════════════════════== -->
+  <section class="hero" id="hero">
+    <div class="logo">
+      <img src="EnQMail Logo.png" alt="EnQMail Logo">
+    </div>
+
+    <h1>EnQMail</h1>
+
+    <p class="subtitle">
+      Email Organisation &amp; Review Workspace for Gmail.
+      Transparency, privacy, and user control are at the heart of EnQMail.
+    </p>
+
+    <div class="badge">Legal Center — Updated June 21, 2026</div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════
+       MAIN CONTENT
+       ═════════════════════════════════════════════== -->
+  <main class="container" id="main-content">
+
+    <!-- ── Prominent Privacy Policy highlight ── -->
+    <div class="privacy-highlight" id="privacy-section">
+      <div class="ph-icon">🔒</div>
+      <div class="ph-text">
+        <h2>Privacy Policy</h2>
+        <p>
+          Learn exactly what information EnQMail collects, how your Gmail data is processed,
+          where it is stored, and how you can delete it at any time.
+        </p>
+        <a href="privacy.html" class="btn-privacy" id="btn-read-privacy">Read Privacy Policy</a>
+      </div>
+    </div>
+
+    <!-- ── Document cards ── -->
+    <h2 class="section-title">Legal Documents</h2>
+    <p class="section-subtitle">Important information about your use of EnQMail.</p>
+
+    <div class="cards">
+
+      <a href="privacy.html" class="card featured" id="card-privacy">
+        <div class="icon">🔒</div>
+        <h3>Privacy Policy</h3>
+        <p>
+          What we collect, how Gmail data is processed, how your information is stored,
+          and how we protect your privacy.
+        </p>
+        <span class="card-link-label">View Privacy Policy →</span>
+      </a>
+
+      <a href="terms.html" class="card" id="card-terms">
+        <div class="icon">📜</div>
+        <h3>Terms of Service</h3>
+        <p>
+          Review the terms governing your access to and use of EnQMail and its services.
+        </p>
+        <span class="card-link-label">View Terms →</span>
+      </a>
+
+      <a href="delete-account.html" class="card" id="card-delete">
+        <div class="icon">🗑️</div>
+        <h3>Account Deletion</h3>
+        <p>
+          Learn how to permanently delete your EnQMail account and all associated data.
+        </p>
+        <span class="card-link-label">View Deletion Guide →</span>
+      </a>
+
+    </div>
+
+    <!-- ── Contact / Support ── -->
+    <div class="info-box" id="contact-section">
+      <h3>Need Help?</h3>
+      <p>
+        For privacy inquiries, account issues, legal requests, or general support,
+        please contact us directly.
+      </p>
+      <a href="mailto:enqmail27@gmail.com" class="email-btn" id="btn-contact">
+        Contact Support
+      </a>
+    </div>
+
+  </main>
+
+  <!-- ═══════════════════════════════════════════════
+       FOOTER
+       ═════════════════════════════════════════════== -->
+  <footer id="site-footer">
+    <div>
+      <strong>EnQMail</strong> — Email Organisation &amp; Review Workspace
+    </div>
+    <div class="footer-links">
+      <a href="privacy.html">Privacy Policy</a>
+      <a href="terms.html">Terms of Service</a>
+      <a href="delete-account.html">Account Deletion</a>
+      <a href="mailto:enqmail27@gmail.com">enqmail27@gmail.com</a>
+    </div>
+    <div style="margin-top:10px;">
+      © 2026 EnQMail · Developed by Prasad Mahankal. All Rights Reserved.
+    </div>
+  </footer>
+
+</body>
+</html>

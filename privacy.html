@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Privacy Policy — EnQMail</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+body{font-family:Inter,sans-serif;max-width:1000px;margin:auto;background:#f8fafc;color:#111827;line-height:1.7;padding:0}
+header{background:#fff;padding:16px 24px;border-bottom:1px solid #e5e7eb;position:sticky;top:0;display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;z-index:100}
+header .nav-brand{font-weight:800;color:#111827;text-decoration:none;font-size:17px}
+header .nav-links{display:flex;gap:16px;flex-wrap:wrap}
+header .nav-links a{color:#6d5df6;text-decoration:none;font-size:14px;font-weight:600}
+header .nav-links a:hover{text-decoration:underline}
+.hero{padding:50px 24px;text-align:center;background:#fff}
+main{padding:24px}
+section{background:#fff;border:1px solid #e5e7eb;border-radius:12px;padding:24px;margin-bottom:18px}
+h1,h2{color:#111827}
+.badge{display:inline-block;padding:6px 14px;background:#f3f1ff;color:#6d5df6;border-radius:999px}
+footer{text-align:center;padding:30px;color:#6b7280;border-top:1px solid #e5e7eb;margin-top:20px;background:#fff}
+footer a{color:#6d5df6;text-decoration:none;font-weight:600}
+footer a:hover{text-decoration:underline}
+.footer-links{margin-top:8px;display:flex;justify-content:center;gap:18px;flex-wrap:wrap}
+table{width:100%;border-collapse:collapse}
+td,th{border:1px solid #e5e7eb;padding:8px;text-align:left}
+</style>
+</head>
+<body>
+<header>
+  <a href="index.html" class="nav-brand">← EnQMail</a>
+  <nav class="nav-links">
+    <a href="index.html">Home</a>
+    <a href="privacy.html">Privacy Policy</a>
+    <a href="terms.html">Terms of Service</a>
+    <a href="delete-account.html">Account Deletion</a>
+  </nav>
+</header>
+<div class="hero">
+<h1>Privacy Policy</h1>
+<p>How EnQMail collects, uses, stores and protects information.</p>
+<div class="badge">Last Updated: 21 June 2026</div>
+</div>
+<main>
+
+<section>
+<h2>1. Introduction</h2>
+<p>EnQMail is an email organization and review application. This Privacy Policy explains how information is collected and processed when using EnQMail.</p>
+</section>
+
+<section>
+<h2>2. Data Controller</h2>
+<p><strong>Developer:</strong> Prasad Mahankal</p>
+<p><strong>Contact:</strong> enqmail27@gmail.com</p>
+</section>
+
+<section>
+<h2>3. Information We Collect</h2>
+<h3>Account Information</h3>
+<ul>
+<li>Name</li>
+<li>Email address</li>
+<li>Google Account ID</li>
+<li>Google profile photo URL</li>
+<li>Internal user identifier</li>
+</ul>
+
+<h3>Gmail Data</h3>
+<ul>
+<li>Email subject lines</li>
+<li>Sender and recipient information</li>
+<li>Email body content</li>
+<li>Email timestamps</li>
+<li>Email metadata</li>
+<li>Gmail labels</li>
+</ul>
+
+<p>EnQMail stores synchronized email bodies in its database to provide Review Queue, My Emails, folders, reminders, and email organization features.</p>
+
+<h3>Attachment Metadata</h3>
+<p>EnQMail does not download or store attachment files. It may store attachment metadata such as filename, file size, and MIME type.</p>
+
+<h3>User Organization Data</h3>
+<ul>
+<li>Folder names</li>
+<li>Folder assignments</li>
+<li>Review Queue status</li>
+<li>Needs Action status</li>
+<li>Save For Reference status</li>
+<li>Reminder settings</li>
+<li>Routing rules</li>
+<li>Blocked sender rules</li>
+<li>Review markers</li>
+</ul>
+</section>
+
+<section>
+<h2>4. How We Use Information</h2>
+<ul>
+<li>Authenticate users</li>
+<li>Synchronize Gmail accounts</li>
+<li>Provide Review Queue functionality</li>
+<li>Organize emails into folders and categories</li>
+<li>Create reminders</li>
+<li>Store user preferences and workflow state</li>
+<li>Maintain application security and reliability</li>
+</ul>
+</section>
+
+<section>
+<h2>5. Gmail Access</h2>
+<p>EnQMail requests the Google OAuth scope:</p>
+<p><code>https://www.googleapis.com/auth/gmail.modify</code></p>
+<p>This scope is used to read Gmail messages and modify Gmail message state, including read/unread status and labels as part of EnQMail's review and organization workflow.</p>
+</section>
+
+<section>
+<h2>6. Google API Services User Data Policy</h2>
+<p>EnQMail's use and transfer of information received from Google APIs adheres to the Google API Services User Data Policy, including the Limited Use requirements.</p>
+<ul>
+<li>Google user data is not sold.</li>
+<li>Google user data is not used for advertising purposes.</li>
+<li>Google user data is used only to provide EnQMail functionality.</li>
+<li>Google user data is not used to train generalized AI or machine learning models.</li>
+</ul>
+</section>
+
+<section>
+<h2>7. Storage & Security</h2>
+<p>Server-side data is stored in Neon PostgreSQL.</p>
+<p>Authentication is provided using Firebase Authentication and Google OAuth.</p>
+<p>Data is transmitted using encrypted HTTPS connections.</p>
+
+<h3>Local Device Storage</h3>
+<p>EnQMail may store the following locally using AsyncStorage:</p>
+<ul>
+<li>Authentication/session information</li>
+<li>Offline mode configuration</li>
+<li>API configuration</li>
+<li>Reminder notification identifiers</li>
+<li>Offline-mode email and workflow data</li>
+</ul>
+</section>
+
+<section>
+<h2>8. Notifications</h2>
+<p>EnQMail uses local device notifications for email reminders created by users. Remote push notifications are not currently used.</p>
+</section>
+
+<section>
+<h2>9. Third-Party Services</h2>
+<table>
+<tr><th>Service</th><th>Purpose</th></tr>
+<tr><td>Google OAuth</td><td>User authentication</td></tr>
+<tr><td>Gmail API</td><td>Email access and organization</td></tr>
+<tr><td>Firebase Authentication</td><td>Identity management</td></tr>
+<tr><td>Neon PostgreSQL</td><td>Data storage</td></tr>
+<tr><td>Expo Notifications</td><td>Local reminders</td></tr>
+</table>
+</section>
+
+<section>
+<h2>10. Account Deletion</h2>
+<p>EnQMail provides in-app account deletion through:</p>
+<p><strong>Settings & Rules → Privacy & Safety → Delete My Account & Data</strong></p>
+<p>When an account is deleted, the user record and associated emails, folders, routing rules, reminders, and related data are deleted immediately.</p>
+</section>
+
+<section>
+<h2>11. Your Rights</h2>
+<p>You may contact enqmail27@gmail.com regarding privacy questions, data access requests, or account-related concerns.</p>
+</section>
+
+<section>
+<h2>12. Children's Privacy</h2>
+<p>EnQMail is not intended for children under 13 years of age.</p>
+</section>
+
+<section>
+<h2>13. Changes</h2>
+<p>This Privacy Policy may be updated from time to time. The updated version will display a revised effective date.</p>
+</section>
+
+</main>
+<footer>
+  <div>EnQMail — Email Organisation &amp; Review Workspace</div>
+  <div class="footer-links">
+    <a href="index.html">Home</a>
+    <a href="privacy.html">Privacy Policy</a>
+    <a href="terms.html">Terms of Service</a>
+    <a href="delete-account.html">Account Deletion</a>
+    <a href="mailto:enqmail27@gmail.com">enqmail27@gmail.com</a>
+  </div>
+  <div style="margin-top:8px;">© 2026 EnQMail · Last Updated: 21 June 2026</div>
+</footer>
+</body>
+</html>
